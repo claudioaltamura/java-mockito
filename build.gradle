@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+}
+
+double junit5MinorVersion=3.2
+
+dependencies {
+	testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: "5.${junit5MinorVersion}"
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: "5.${junit5MinorVersion}"
+    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: "1.${junit5MinorVersion}"
+
+	testCompile group: 'org.mockito', name: 'mockito-core', version: "2.24.0"
+	testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: "2.24.0"
+}
+
+test {
+	useJUnitPlatform()
+
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+
+	reports {
+		html.enabled = true
+	}
+}
+
