@@ -2,17 +2,16 @@ apply plugin: 'java'
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
-double junit5MinorVersion=3.2
-
 dependencies {
-	testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: "5.${junit5MinorVersion}"
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: "5.${junit5MinorVersion}"
-    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: "1.${junit5MinorVersion}"
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: "5.3.1"
+    testCompile group: 'org.junit.platform', name: 'junit-platform-runner', version: "1.2.0"
+    testCompile group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.2.0'
 
-	testCompile group: 'org.mockito', name: 'mockito-core', version: "2.24.0"
-	testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: "2.24.0"
+	testCompile group: 'org.mockito', name: 'mockito-core', version: "2.21.0"
+	testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: "2.23.0"
 }
 
 test {
@@ -26,4 +25,3 @@ test {
 		html.enabled = true
 	}
 }
-
