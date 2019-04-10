@@ -1,29 +1,35 @@
 package de.claudioaltamura.java.mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 @RunWith(JUnitPlatform.class)
-class MockTest {
+class SpyTest {
+  @Spy
+  List<String> list = new ArrayList<>();
 
-  @Mock
-  private List<String> mockedList;
-  
   @Test
-  void testMockedList() {
-    mockedList.add("a");
-    
-    verify(mockedList).add("a");
-    
-    assertEquals(0, mockedList.size());
+  public void testSpy() {
+    list.add("one");
+    list.add("two");
+
+    verify(list).add("one");
+    verify(list).add("two");
+
+    assertEquals(2, list.size());
+
+    doReturn(100).when(list).size();
+    assertEquals(100, list.size());
   }
 
 }
