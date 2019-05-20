@@ -16,13 +16,13 @@ class MockTest {
 
   @Mock
   private List<String> mockedList;
-  
+
   @Test
   void testMockedList() {
     mockedList.add("a");
-    
+
     verify(mockedList).add("a");
-    
+
     assertEquals(0, mockedList.size());
   }
 
