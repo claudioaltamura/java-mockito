@@ -1,12 +1,15 @@
 package de.claudioaltamura.java.mockito;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Car {
 
-  private String manuefactor;
-  private String model;
+  private String manuefactor = "";
+  private String model = "";
   private int wheels;
+  private Map<String, String> sounds = new HashMap<>();
 
   public String getManuefactor() {
     return manuefactor;
@@ -32,9 +35,17 @@ public class Car {
     this.wheels = wheels;
   }
 
+  public void setSounds(Map<String,String> sounds) {
+    this.sounds = sounds;
+  }
+
+  public Map<String,String> getSounds() {
+    return sounds;
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(manuefactor, model, wheels);
+    return Objects.hash(manuefactor, model, sounds, wheels);
   }
 
   @Override
@@ -47,12 +58,13 @@ public class Car {
       return false;
     Car other = (Car) obj;
     return Objects.equals(manuefactor, other.manuefactor) && Objects.equals(model, other.model)
-        && wheels == other.wheels;
+        && Objects.equals(sounds, other.sounds) && wheels == other.wheels;
   }
 
   @Override
   public String toString() {
-    return "Car [manuefactor=" + manuefactor + ", model=" + model + ", wheels=" + wheels + "]";
+    return "Car [manuefactor=" + manuefactor + ", model=" + model + ", wheels=" + wheels
+        + ", sounds=" + sounds + "]";
   }
 
 }
