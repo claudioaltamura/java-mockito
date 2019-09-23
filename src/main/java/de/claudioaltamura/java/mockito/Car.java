@@ -43,6 +43,10 @@ public class Car {
     return sounds;
   }
 
+  public void hoot() {
+    System.out.println("hoot hoot");
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(manuefactor, model, sounds, wheels);
