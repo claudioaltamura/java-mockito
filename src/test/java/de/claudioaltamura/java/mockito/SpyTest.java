@@ -12,11 +12,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class SpyTest {
+
   @Spy
   List<String> list = new ArrayList<>();
 
   @Test
-  public void testSpy() {
+  void testSpy() {
     list.add("one");
     list.add("two");
 

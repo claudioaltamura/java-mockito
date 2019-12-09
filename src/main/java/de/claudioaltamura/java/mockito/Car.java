@@ -47,6 +47,10 @@ public class Car {
     System.out.println("hoot hoot");
   }
 
+  public void boom() throws Exception {
+    throw new Exception();
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(manuefactor, model, sounds, wheels);

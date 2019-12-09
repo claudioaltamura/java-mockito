@@ -10,7 +10,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class CaptorTest {
+class CaptorTest {
 
   @Mock
   private Car mockedCar;
@@ -19,7 +19,7 @@ public class CaptorTest {
   private ArgumentCaptor<String> argumentCaptor;
   
   @Test
-  public void testSetManuefactor() {
+  void testSetManuefactor() {
     mockedCar.setManuefactor("Mercedes");
 
     verify(mockedCar).setManuefactor(argumentCaptor.capture());

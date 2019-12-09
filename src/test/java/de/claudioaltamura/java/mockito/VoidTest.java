@@ -27,5 +27,4 @@ class VoidTest {
     verify(car, times(1)).hoot();
   }
 
-  
 }
