@@ -1,6 +1,9 @@
 package de.claudioaltamura.java.mockito;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doThrow;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,11 +16,14 @@ class NonVoidTest {
   @Mock
   private Car car;
 
-  @Test()
-  void test() {
-    doThrow(NullPointerException.class).when(car).hoot();
+  @Test
+  void testDoAnwser() {
+	  doAnswer(invocation -> {
+		  return "Mercedes New";
+	  }).when(car).getModel();
 
-    assertThrows(NullPointerException.class, car::hoot);
+	  assertEquals(car.getModel(), "Mercedes New");
   }
+
 
 }
