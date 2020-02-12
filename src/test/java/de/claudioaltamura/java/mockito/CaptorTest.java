@@ -1,6 +1,8 @@
 package de.claudioaltamura.java.mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,13 +19,13 @@ class CaptorTest {
 
   @Captor
   private ArgumentCaptor<String> argumentCaptor;
-  
+
   @Test
   void testSetManuefactor() {
-    mockedCar.setManuefactor("Mercedes");
+    doNothing().when(mockedCar).setManuefactor(argumentCaptor.capture());
 
-    verify(mockedCar).setManuefactor(argumentCaptor.capture());
+	mockedCar.setManuefactor("Mercedes");
 
     assertEquals("Mercedes", argumentCaptor.getValue());
-  }
+	}
 }
