@@ -1,6 +1,9 @@
 package de.claudioaltamura.java.mockito;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
@@ -29,11 +32,21 @@ class VoidTest {
     verify(car, times(1)).hoot();
   }
 
-  @Test()
+  @Test
   void testDoThrow() {
     doThrow(NullPointerException.class).when(car).hoot();
 
     assertThrows(NullPointerException.class, car::hoot);
+  }
+
+  @Test
+  void testAnsweringACallToVoid() {
+    doAnswer(invocation -> {
+        String model = invocation.getArgument(0);
+        assertTrue(model.length()>3);
+        return null;
+    }).when(car).setModel(anyString());
+    car.setModel("NewModel");
   }
 
 }
