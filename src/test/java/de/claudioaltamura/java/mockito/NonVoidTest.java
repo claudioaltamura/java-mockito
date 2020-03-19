@@ -25,5 +25,4 @@ class NonVoidTest {
 	  assertEquals(car.getModel(), "Mercedes New");
   }
 
-
 }
