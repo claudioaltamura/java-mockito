@@ -24,7 +24,7 @@ class CaptorTest {
   void testSetManuefactor() {
     doNothing().when(mockedCar).setManuefactor(argumentCaptor.capture());
 
-	mockedCar.setManuefactor("Mercedes");
+	  mockedCar.setManuefactor("Mercedes");
 
     assertEquals("Mercedes", argumentCaptor.getValue());
 	}
