@@ -33,6 +33,12 @@ class VoidTest {
   }
 
   @Test
+  void testDoNothingWithoutDo() {
+    car.hoot();
+    verify(car, times(1)).hoot();
+  }
+
+  @Test
   void testDoThrow() {
     doThrow(NullPointerException.class).when(car).hoot();
 
