@@ -2,7 +2,6 @@ package de.claudioaltamura.java.mockito;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doThrow;
 import org.junit.jupiter.api.Test;
@@ -23,6 +22,13 @@ class NonVoidTest {
 	  }).when(car).getModel();
 
 	  assertEquals(car.getModel(), "Mercedes New");
+  }
+
+  @Test
+  void testDoThrow() {
+    doThrow(RuntimeException.class).when(car).getModel();
+
+    assertThrows(RuntimeException.class, car::getModel);
   }
 
 }
