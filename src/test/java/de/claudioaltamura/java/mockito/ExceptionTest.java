@@ -8,7 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class ExceptionTest {
 
-  @Test()
+  @Test
   void test() {
     Car car = new Car();
     assertThrows(Exception.class, car::boom);
