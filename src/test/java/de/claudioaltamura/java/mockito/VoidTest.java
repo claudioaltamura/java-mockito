@@ -26,13 +26,6 @@ class VoidTest {
   }
 
   @Test
-  void testDoNothing() {
-    doNothing().when(car).hoot();
-    car.hoot();
-    verify(car, times(1)).hoot();
-  }
-
-  @Test
   void testDoNothingWithoutDo() {
     car.hoot();
     verify(car, times(1)).hoot();
