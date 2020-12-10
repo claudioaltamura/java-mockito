@@ -10,4 +10,5 @@ Java Examples with Mockito
 * Void
 * Partial Mocking
 * Spy
+* Future  
 * ...
