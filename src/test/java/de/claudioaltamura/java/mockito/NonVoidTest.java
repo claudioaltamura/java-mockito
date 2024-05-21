@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.doThrow;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -12,16 +13,18 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class NonVoidTest {
 
-  @Mock
-  private Car car;
+  @Mock private Car car;
 
   @Test
   void testDoAnwser() {
-	  doAnswer(invocation -> {
-		  return "Mercedes New";
-	  }).when(car).getModel();
+    doAnswer(
+            invocation -> {
+              return "Mercedes New";
+            })
+        .when(car)
+        .getModel();
 
-	  assertEquals(car.getModel(), "Mercedes New");
+    assertEquals("Mercedes New", car.getModel());
   }
 
   @Test
@@ -30,5 +33,4 @@ class NonVoidTest {
 
     assertThrows(RuntimeException.class, car::getModel);
   }
-
 }

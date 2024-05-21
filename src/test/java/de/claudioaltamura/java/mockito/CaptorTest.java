@@ -2,6 +2,7 @@ package de.claudioaltamura.java.mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.doNothing;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -12,11 +13,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class CaptorTest {
 
-  @Mock
-  private Car mockedCar;
+  @Mock private Car mockedCar;
 
-  @Captor
-  private ArgumentCaptor<String> argumentCaptor;
+  @Captor private ArgumentCaptor<String> argumentCaptor;
 
   @Test
   void testSetManuefactor() {
@@ -25,5 +24,5 @@ class CaptorTest {
     mockedCar.setManuefactor("Mercedes");
 
     assertEquals("Mercedes", argumentCaptor.getValue());
-	}
+  }
 }

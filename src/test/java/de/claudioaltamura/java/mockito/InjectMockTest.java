@@ -2,6 +2,7 @@ package de.claudioaltamura.java.mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,11 +13,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class InjectMockTest {
 
-  @Mock
-  private Map<String, String> sounds;
+  @Mock private Map<String, String> sounds;
 
-  @InjectMocks
-  private Car car;
+  @InjectMocks private Car car;
 
   @Test
   void test() {
@@ -24,5 +23,4 @@ class InjectMockTest {
 
     assertEquals("Vroom", car.getSounds().get("One"));
   }
-
 }

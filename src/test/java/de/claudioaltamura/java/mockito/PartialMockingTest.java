@@ -1,20 +1,19 @@
 package de.claudioaltamura.java.mockito;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.doCallRealMethod;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 @ExtendWith(MockitoExtension.class)
 class PartialMockingTest {
 
-  @Mock
-  private Car car;
+  @Mock private Car car;
 
   @Test
   void testPartialMocked() {
@@ -23,7 +22,5 @@ class PartialMockingTest {
     assertNull(car.getModel());
 
     verify(car, times(1)).getModel();
-
   }
-
 }

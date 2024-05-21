@@ -35,11 +35,11 @@ public class Car {
     this.wheels = wheels;
   }
 
-  public void setSounds(Map<String,String> sounds) {
+  public void setSounds(Map<String, String> sounds) {
     this.sounds = sounds;
   }
 
-  public Map<String,String> getSounds() {
+  public Map<String, String> getSounds() {
     return sounds;
   }
 
@@ -58,21 +58,26 @@ public class Car {
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
+    if (this == obj) return true;
+    if (obj == null) return false;
+    if (getClass() != obj.getClass()) return false;
     Car other = (Car) obj;
-    return Objects.equals(manuefactor, other.manuefactor) && Objects.equals(model, other.model)
-        && Objects.equals(sounds, other.sounds) && wheels == other.wheels;
+    return Objects.equals(manuefactor, other.manuefactor)
+        && Objects.equals(model, other.model)
+        && Objects.equals(sounds, other.sounds)
+        && wheels == other.wheels;
   }
 
   @Override
   public String toString() {
-    return "Car [manuefactor=" + manuefactor + ", model=" + model + ", wheels=" + wheels
-        + ", sounds=" + sounds + "]";
+    return "Car [manuefactor="
+        + manuefactor
+        + ", model="
+        + model
+        + ", wheels="
+        + wheels
+        + ", sounds="
+        + sounds
+        + "]";
   }
-
 }
